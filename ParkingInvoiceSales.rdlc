@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="CustomerNo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerNo</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerNo</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerName</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerName</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerPostCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerPostCode</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerPostCode</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerCity">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerCity</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerCity</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerAddress">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerAddress</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerAddress</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="InvoicePeriod">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>InvoicePeriod</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>InvoicePeriod</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentDateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentDateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentDateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ServicesTypeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ServicesTypeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ServicesTypeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IssuerCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>IssuerCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>IssuerCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CarNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CarNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CarNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EntryTimeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EntryTimeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EntryTimeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ParkingDurationCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ParkingDurationCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ParkingDurationCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ParkingRateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ParkingRateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ParkingRateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SumCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SumCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SumCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DurationCaption">
+          <DataField>DurationCaption</DataField>
+        </Field>
+        <Field Name="AmountCaption">
+          <DataField>AmountCaption</DataField>
+        </Field>
+        <Field Name="UnitPriceCaption">
+          <DataField>UnitPriceCaption</DataField>
+        </Field>
+        <Field Name="ParkingInvoiceCaption">
+          <DataField>ParkingInvoiceCaption</DataField>
+        </Field>
+        <Field Name="MonthEnd">
+          <DataField>MonthEnd</DataField>
+        </Field>
+        <Field Name="MonthStart">
+          <DataField>MonthStart</DataField>
+        </Field>
+        <Field Name="CustNo">
+          <DataField>CustNo</DataField>
+        </Field>
+        <Field Name="CustName">
+          <DataField>CustName</DataField>
+        </Field>
+        <Field Name="CustAddress">
+          <DataField>CustAddress</DataField>
+        </Field>
+        <Field Name="CustPostCode">
+          <DataField>CustPostCode</DataField>
+        </Field>
+        <Field Name="CustCity">
+          <DataField>CustCity</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="DocumentDate">
+          <DataField>DocumentDate</DataField>
+        </Field>
+        <Field Name="ServicesType">
+          <DataField>ServicesType</DataField>
+        </Field>
+        <Field Name="Issuer">
+          <DataField>Issuer</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="CarNo">
+          <DataField>CarNo</DataField>
+        </Field>
+        <Field Name="EntryTime">
+          <DataField>EntryTime</DataField>
+        </Field>
+        <Field Name="ParkingDuration">
+          <DataField>ParkingDuration</DataField>
+        </Field>
+        <Field Name="ParkingDurationFormat">
+          <DataField>ParkingDurationFormat</DataField>
+        </Field>
+        <Field Name="ParkingRate">
+          <DataField>ParkingRate</DataField>
+        </Field>
+        <Field Name="ParkingRateFormat">
+          <DataField>ParkingRateFormat</DataField>
+        </Field>
+        <Field Name="Unit">
+          <DataField>Unit</DataField>
+        </Field>
+        <Field Name="Sum">
+          <DataField>Sum</DataField>
+        </Field>
+        <Field Name="SumFormat">
+          <DataField>SumFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

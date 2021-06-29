@@ -1,0 +1,26 @@
+{
+  "id": "13685274-c47d-4571-b95f-fd42a17b5efd",
+  "name": "Carpark",
+  "publisher": "Default publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "target": "Extension",
+  "dependencies": [],
+  "platform": "1.0.0.0",
+  "application": "14.0.45012.0",
+   "idRanges": [
+    {
+      "from": 50000,
+      "to": 99999
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://Carpark.com/help/",
+  "showMyCode": true,
+  "runtime": "3.0"
+}

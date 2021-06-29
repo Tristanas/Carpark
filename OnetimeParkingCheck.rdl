@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="CarNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CarNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CarNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EntryTimeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EntryTimeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EntryTimeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ExitTimeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ExitTimeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ExitTimeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ParkingDurationCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ParkingDurationCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ParkingDurationCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LotNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LotNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LotNoCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="SumCaption">
+          <DataField>SumCaption</DataField>
+        </Field>
+        <Field Name="RateCaption">
+          <DataField>RateCaption</DataField>
+        </Field>
+        <Field Name="CarNo">
+          <DataField>CarNo</DataField>
+        </Field>
+        <Field Name="EntryTime">
+          <DataField>EntryTime</DataField>
+        </Field>
+        <Field Name="ExitTime">
+          <DataField>ExitTime</DataField>
+        </Field>
+        <Field Name="ParkingRate">
+          <DataField>ParkingRate</DataField>
+        </Field>
+        <Field Name="ParkingRateFormat">
+          <DataField>ParkingRateFormat</DataField>
+        </Field>
+        <Field Name="ParkingDuration">
+          <DataField>ParkingDuration</DataField>
+        </Field>
+        <Field Name="ParkingDurationFormat">
+          <DataField>ParkingDurationFormat</DataField>
+        </Field>
+        <Field Name="Sum">
+          <DataField>Sum</DataField>
+        </Field>
+        <Field Name="SumFormat">
+          <DataField>SumFormat</DataField>
+        </Field>
+        <Field Name="LotNo">
+          <DataField>LotNo</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

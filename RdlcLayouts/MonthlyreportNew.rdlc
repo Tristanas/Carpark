@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="OneTimeVisit">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OneTimeVisit</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OneTimeVisit</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Interval">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Interval</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Interval</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OVDurationCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OVDurationCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OVDurationCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CarNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CarNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CarNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DurationCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DurationCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DurationCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SumCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SumCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SumCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ServicesTypeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ServicesTypeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ServicesTypeCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NameCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NameCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NameCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SubCarNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SubCarNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SubCarNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SubSumCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SubSumCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SubSumCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="LotNo">
+          <DataField>LotNo</DataField>
+        </Field>
+        <Field Name="LotAddress">
+          <DataField>LotAddress</DataField>
+        </Field>
+        <Field Name="LotCity">
+          <DataField>LotCity</DataField>
+        </Field>
+        <Field Name="LotCountry">
+          <DataField>LotCountry</DataField>
+        </Field>
+        <Field Name="SelectedLotNo">
+          <DataField>SelectedLotNo</DataField>
+        </Field>
+        <Field Name="DocumentName">
+          <DataField>DocumentName</DataField>
+        </Field>
+        <Field Name="CurrencySymbol">
+          <DataField>CurrencySymbol</DataField>
+        </Field>
+        <Field Name="SumHeader">
+          <DataField>SumHeader</DataField>
+        </Field>
+        <Field Name="SubDurationHeader">
+          <DataField>SubDurationHeader</DataField>
+        </Field>
+        <Field Name="RateHeader">
+          <DataField>RateHeader</DataField>
+        </Field>
+        <Field Name="SubRateHeader">
+          <DataField>SubRateHeader</DataField>
+        </Field>
+        <Field Name="DurationHeader">
+          <DataField>DurationHeader</DataField>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CarNo">
+          <DataField>CarNo</DataField>
+        </Field>
+        <Field Name="Duration">
+          <DataField>Duration</DataField>
+        </Field>
+        <Field Name="DurationFormat">
+          <DataField>DurationFormat</DataField>
+        </Field>
+        <Field Name="HeaderNo">
+          <DataField>HeaderNo</DataField>
+        </Field>
+        <Field Name="Sum">
+          <DataField>Sum</DataField>
+        </Field>
+        <Field Name="SumFormat">
+          <DataField>SumFormat</DataField>
+        </Field>
+        <Field Name="ServicesType">
+          <DataField>ServicesType</DataField>
+        </Field>
+        <Field Name="HeaderMonth">
+          <DataField>HeaderMonth</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="SubCustomerName">
+          <DataField>SubCustomerName</DataField>
+        </Field>
+        <Field Name="SubHeaderMonth">
+          <DataField>SubHeaderMonth</DataField>
+        </Field>
+        <Field Name="SubCarNo">
+          <DataField>SubCarNo</DataField>
+        </Field>
+        <Field Name="SubDuration">
+          <DataField>SubDuration</DataField>
+        </Field>
+        <Field Name="SubDurationFormat">
+          <DataField>SubDurationFormat</DataField>
+        </Field>
+        <Field Name="SubRate">
+          <DataField>SubRate</DataField>
+        </Field>
+        <Field Name="SubRateFormat">
+          <DataField>SubRateFormat</DataField>
+        </Field>
+        <Field Name="SubSum">
+          <DataField>SubSum</DataField>
+        </Field>
+        <Field Name="SubSumFormat">
+          <DataField>SubSumFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
