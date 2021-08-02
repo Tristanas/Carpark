@@ -2,7 +2,7 @@ page 61025 "Parking Order Lines Subform"
 {
     AutoSplitKey = true;
     PageType = ListPart;
-    SourceTable = "Parking Lines";
+    SourceTable = "SPLN_Parking Lines";
 
     layout
     {
@@ -18,7 +18,7 @@ page 61025 "Parking Order Lines Subform"
                 {
                     ApplicationArea = All;
                 }
-                field(Duration; Duration)
+                field("Duration"; Duration)
                 {
                     ApplicationArea = All;
                 }
@@ -30,7 +30,7 @@ page 61025 "Parking Order Lines Subform"
                 {
                     ApplicationArea = All;
                 }
-                field("Sum"; Sum)
+                field(Sum; Sum)
                 {
                     ApplicationArea = All;
                 }

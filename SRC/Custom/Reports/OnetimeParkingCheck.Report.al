@@ -1,4 +1,4 @@
-report 61000 "One-time Parking Check"
+report 61000 "SPLN_One-time Parking Check"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'SRC/Custom/Reports/RdlcLayouts/OnetimeParkingCheck.rdlc';
@@ -7,7 +7,7 @@ report 61000 "One-time Parking Check"
 
     dataset
     {
-        dataitem("Parking Registration"; "Parking Registration")
+        dataitem("SPLN_Parking Registration"; "SPLN_Parking Registration")
         {
             column(SumCaption; StrSubstNo(SumCapt, CurrencySymbol))
             {
@@ -15,29 +15,29 @@ report 61000 "One-time Parking Check"
             column(RateCaption; StrSubstNo(RateCapt, CurrencySymbol))
             {
             }
-            column(CarNo; "Parking Registration"."Car No.")
+            column(CarNo; "SPLN_Parking Registration"."Car No.")
             {
                 IncludeCaption = true;
             }
-            column(EntryTime; "Parking Registration"."Entry Time")
+            column(EntryTime; "SPLN_Parking Registration"."Entry Time")
             {
                 IncludeCaption = true;
             }
-            column(ExitTime; "Parking Registration"."Exit Time")
+            column(ExitTime; "SPLN_Parking Registration"."Exit Time")
             {
                 IncludeCaption = true;
             }
-            column(ParkingRate; "Parking Registration"."Parking Rate")
+            column(ParkingRate; "SPLN_Parking Registration"."Parking Rate")
             {
             }
-            column(ParkingDuration; "Parking Registration"."Parking Duration (Hours)")
+            column(ParkingDuration; "SPLN_Parking Registration"."Parking Duration (Hours)")
             {
                 IncludeCaption = true;
             }
-            column("Sum"; "Parking Registration".Sum)
+            column("Sum"; "SPLN_Parking Registration".Sum)
             {
             }
-            column(LotNo; "Parking Registration"."Parking Lot No.")
+            column(LotNo; "SPLN_Parking Registration"."Parking Lot No.")
             {
                 IncludeCaption = true;
             }
@@ -72,7 +72,7 @@ report 61000 "One-time Parking Check"
         DurationCapt: Label 'Val.';
         RateCapt: Label 'Tarifas (%1/val.)';
         SumCapt: Label 'Suma (%1)';
-        CurrencyFormatCU: Codeunit "Currency Format Setup";
+        CurrencyFormatCU: Codeunit "SPLN_Currency Format Setup";
         CurrencySymbol: Code[20];
 }
 

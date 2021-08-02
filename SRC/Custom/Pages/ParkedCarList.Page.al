@@ -1,7 +1,7 @@
-page 61002 "Parked Car List"
+page 61002 "SPLN_Parked Car List"
 {
     PageType = List;
-    SourceTable = "Parking Registration";
+    SourceTable = "SPLN_Parking Registration";
     SourceTableView = WHERE("Exit Time" = CONST());
     UsageCategory = Lists;
     ApplicationArea = All;

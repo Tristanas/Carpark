@@ -1,4 +1,4 @@
-page 61017 "Parking Customer Card"
+page 61017 "SPLN_Parking Customer Card"
 {
     Caption = 'Customer Card';
     PageType = Card;
@@ -45,11 +45,11 @@ page 61017 "Parking Customer Card"
                     ToolTip = 'Specifies an alternate name that you can use to search for a customer.';
                     Visible = false;
                 }
-                field("Payment type"; "Payment type")
+                field("Payment type"; "SPLN_Payment type")
                 {
                     ApplicationArea = All;
                 }
-                field(Company; Company)
+                field(Company; SPLN_Company)
                 {
                     ApplicationArea = All;
                 }

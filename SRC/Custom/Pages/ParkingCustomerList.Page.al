@@ -1,9 +1,9 @@
-page 61012 "Parking Customer List"
+page 61012 "SPLN_Parking Customer List"
 {
-    CardPageID = "Parking Customer Card";
+    CardPageID = "SPLN_Parking Customer Card";
     PageType = List;
     SourceTable = Customer;
-    SourceTableView = WHERE(DemoCust = CONST(false));
+    SourceTableView = WHERE(SPLN_DemoCust = CONST(false));
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -25,11 +25,11 @@ page 61012 "Parking Customer List"
                 {
                     ApplicationArea = All;
                 }
-                field(Company; Company)
+                field(Company; SPLN_Company)
                 {
                     ApplicationArea = All;
                 }
-                field("Payment type"; "Payment type")
+                field("Payment type"; "SPLN_Payment type")
                 {
                     ApplicationArea = All;
                 }
@@ -63,11 +63,11 @@ page 61012 "Parking Customer List"
                     ApplicationArea = Basic, Suite;
                     ToolTip = 'Specifies the sum of payments received from the customer.';
                 }
-                field("Latest Monthly Payment"; "Latest Monthly Payment")
+                field("Latest Monthly Payment"; "SPLN_Latest Monthly Payment")
                 {
                     ApplicationArea = All;
                 }
-                field("Latest Billing Date"; "Latest Billing Date")
+                field("Latest Billing Date"; "SPLN_Latest Billing Date")
                 {
                     ApplicationArea = All;
                 }
@@ -90,17 +90,17 @@ page 61012 "Parking Customer List"
 
                 trigger OnAction()
                 var
-                    ParkingHeader: Record "Parking Header";
-                    ParkingRegistration: Record "Parking Registration";
-                    ParkingLine: Record "Parking Lines";
+                    ParkingHeader: Record "SPLN_Parking Header";
+                    ParkingRegistration: Record "SPLN_Parking Registration";
+                    ParkingLine: Record "SPLN_Parking Lines";
                     ParkingHeaderNo: Code[20];
                     CustomerCars: Record Car;
                     MonthStart: DateTime;
                     MonthEnd: DateTime;
-                    ParkingRate: Record "Parking Rates";
+                    ParkingRate: Record "SPLN_Parking Rates";
                     SalesHeader: Record "Sales Header";
                     SalesLine: Record "Sales Line";
-                    PostingCU: Codeunit "Parking Order - Post";
+                    PostingCU: Codeunit "SPLN_Parking Order - Post";
                 begin
                     // 1. Create Parking Order:
                     ParkingHeader.CreateMonthlyOrder(Rec, ParkingHeader);
@@ -111,7 +111,7 @@ page 61012 "Parking Customer List"
                     SalesHeader.TransferParkingHeaderLines(ParkingHeader);
 
                     // 3. Post parking header and add its reference to the Sales order:
-                    SalesHeader."Parking Order No." := PostingCU.PostOrder(ParkingHeader, FALSE);
+                    SalesHeader."SPLN_Parking Order No." := PostingCU.PostOrder(ParkingHeader, FALSE);
                     SalesHeader.MODIFY;
 
                     IF CONFIRM(STRSUBSTNO('Order no %1 has been created successfully. ' +

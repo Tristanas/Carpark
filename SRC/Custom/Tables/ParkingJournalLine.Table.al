@@ -1,4 +1,4 @@
-table 61008 "Parking Journal Line"
+table 61008 "SPLN_Parking Journal Line"
 {
 
     fields

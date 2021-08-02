@@ -11,15 +11,15 @@ page 61040 "Parking Lot Keeper Role Center"
             group(Information)
             {
                 Caption = 'Information';
-                part("Parking Lot Summary"; "Parking Lot Keeper Queue")
+                part("Parking Lot Summary"; "SPLN_Parking Lot Keeper Queue")
                 {
                     ApplicationArea = All;
                     Caption = 'Parking Lot Summary';
                 }
             }
-            group("Parking Lot")
+            group("SPLN_Parking Lot")
             {
-                part("Parked Cars"; "Parked Cars ListPart")
+                part("Parked Cars"; "SPLN_Parked Cars ListPart")
                 {
                     ApplicationArea = All;
                     Caption = 'Parked Cars';
@@ -40,7 +40,7 @@ page 61040 "Parking Lot Keeper Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page "Parking Customer Card";
+                RunObject = Page "SPLN_Parking Customer Card";
                 RunPageMode = Create;
             }
             action("Register Parking Cars")
@@ -50,7 +50,7 @@ page 61040 "Parking Lot Keeper Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page "Car Registration Page";
+                RunObject = Page "SPLN_Car Registration Page";
                 RunPageMode = Create;
             }
         }
@@ -60,19 +60,19 @@ page 61040 "Parking Lot Keeper Role Center"
             {
                 ApplicationArea = All;
                 Caption = 'Parking Lots';
-                RunObject = Page "Parking Lot List";
+                RunObject = Page "SPLN_Parking Lot List";
             }
             action(ParkedCars)
             {
                 ApplicationArea = All;
                 Caption = 'Parked Cars';
-                RunObject = Page "Parked Car List";
+                RunObject = Page "SPLN_Parked Car List";
             }
             action(ParkingRegistration)
             {
                 ApplicationArea = All;
                 Caption = 'All Parking Registrations';
-                RunObject = Page "Parking Registration List";
+                RunObject = Page "SPLN_Parking Registration List";
             }
             action(CustomerCars)
             {
@@ -83,7 +83,7 @@ page 61040 "Parking Lot Keeper Role Center"
             action(Customers)
             {
                 ApplicationArea = All;
-                RunObject = Page "Parking Customer List";
+                RunObject = Page "SPLN_Parking Customer List";
             }
         }
         area(sections)

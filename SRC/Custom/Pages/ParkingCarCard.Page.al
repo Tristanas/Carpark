@@ -1,4 +1,4 @@
-page 61018 "Parking Car Card"
+page 61018 "SPLN_Parking Car Card"
 {
     PageType = Card;
     SourceTable = Car;

@@ -1,4 +1,4 @@
-table 61003 "Parking Header"
+table 61003 "SPLN_Parking Header"
 {
 
     fields
@@ -29,12 +29,12 @@ table 61003 "Parking Header"
         }
         field(5; "Total Park Visits"; Integer)
         {
-            CalcFormula = Count("Parking Lines" WHERE("Header No." = FIELD("No.")));
+            CalcFormula = Count("SPLN_Parking Lines" WHERE("Header No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(6; "Total Hours Parked"; Decimal)
         {
-            CalcFormula = Sum("Parking Lines".Duration WHERE("Header No." = FIELD("No.")));
+            CalcFormula = Sum("SPLN_Parking Lines".Duration WHERE("Header No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(7; "Document Date"; Date)
@@ -56,7 +56,7 @@ table 61003 "Parking Header"
         }
         field(11; "Total Sum"; Decimal)
         {
-            CalcFormula = Sum("Parking Lines".Sum WHERE("Header No." = FIELD("No.")));
+            CalcFormula = Sum("SPLN_Parking Lines".Sum WHERE("Header No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(107; "No. Series"; Code[20])
@@ -79,7 +79,7 @@ table 61003 "Parking Header"
 
     trigger OnDelete()
     var
-        ParkingLines: Record "Parking Lines";
+        ParkingLines: Record "SPLN_Parking Lines";
     begin
         ParkingLines.SetRange("Header No.", "No.");
         ParkingLines.DeleteAll;
@@ -107,7 +107,7 @@ table 61003 "Parking Header"
     begin
         if Customer.Get("Customer No.") then begin
             "Customer Name" := Customer.Name;
-            "Services Type" := Customer."Payment type"
+            "Services Type" := Customer."SPLN_Payment type"
         end else
             Message(StrSubstNo(errorText3, Customer."No."));
 
@@ -150,9 +150,9 @@ table 61003 "Parking Header"
     end;
 
     //[Scope('OnPrem')]
-    procedure UpdateOrder(ParkingRegistration: Record "Parking Registration"; OrderNo: Code[20])
+    procedure UpdateOrder(ParkingRegistration: Record "SPLN_Parking Registration"; OrderNo: Code[20])
     var
-        ParkingLine: Record "Parking Lines";
+        ParkingLine: Record "SPLN_Parking Lines";
     begin
         with ParkingLine do begin
             SetRange("Header No.", OrderNo);
@@ -171,10 +171,10 @@ table 61003 "Parking Header"
     // A header alongside with lines will be created.
     //[Scope('OnPrem')]
 
-    procedure CreateMonthlyOrder(Customer: Record Customer; var ParkingHeader: Record "Parking Header")
+    procedure CreateMonthlyOrder(Customer: Record Customer; var ParkingHeader: Record "SPLN_Parking Header")
     var
         CustomerCars: Record Car;
-        ParkingRegistration: Record "Parking Registration";
+        ParkingRegistration: Record "SPLN_Parking Registration";
         MonthStart: DateTime;
         MonthEnd: DateTime;
     begin
@@ -184,8 +184,8 @@ table 61003 "Parking Header"
         CustomerCars.SetRange("Customer No.", Customer."No.");
         if not CustomerCars.FindSet then Error(StrSubstNo(errorText2, Customer."No."));
 
-        case Customer."Payment type" of
-            Customer."Payment type"::Account:
+        case Customer."SPLN_Payment type" of
+            Customer."SPLN_Payment type"::Account:
                 begin
                     // Additional filters may be required to bill the correct sum in case
                     // the client paid late for previous order and made one-time visits
@@ -201,7 +201,7 @@ table 61003 "Parking Header"
                     until CustomerCars.Next = 0;
                 end;
 
-            Customer."Payment type"::Subscription:
+            Customer."SPLN_Payment type"::Subscription:
                 begin
                     if CustomerCars.FindSet then
                         repeat

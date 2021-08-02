@@ -1,4 +1,4 @@
-table 61000 Car
+table 61000 "SPLN_Car"
 {
 
     fields

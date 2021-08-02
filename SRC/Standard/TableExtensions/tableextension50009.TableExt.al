@@ -1,4 +1,4 @@
-tableextension 50009 tableextension50009 extends "Gen. Journal Line"
+tableextension 50009 "SPLN_tableextension50009" extends "Gen. Journal Line"
 {
     local procedure SPLN_TRIAL_CUSTOM_FUNCTIONS()
     begin

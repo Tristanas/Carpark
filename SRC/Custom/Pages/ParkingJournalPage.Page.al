@@ -1,4 +1,4 @@
-page 61015 "Parking Journal Page"
+page 61015 "SPLN_Parking Journal Page"
 {
     PageType = List;
     SourceTable = "Parking Journal Line";

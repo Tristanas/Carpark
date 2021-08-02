@@ -1,4 +1,4 @@
-table 61002 "Parking Registration"
+table 61002 "SPLN_Parking Registration"
 {
 
     fields
@@ -43,19 +43,19 @@ table 61002 "Parking Registration"
         {
             DataClassification = ToBeClassified;
         }
-        field(7; "Sum"; Decimal)
+        field(7; Sum; Decimal)
         {
             DataClassification = ToBeClassified;
         }
         field(8; "Parking Lot No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Parking Lot";
+            TableRelation = "SPLN_Parking Lot";
         }
         field(9; "Parking Order No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Parking Header";
+            TableRelation = "SPLN_Parking Header";
         }
     }
 
@@ -88,7 +88,7 @@ table 61002 "Parking Registration"
 
     trigger OnModify()
     var
-        ParkingHeader: Record "Parking Header";
+        ParkingHeader: Record "SPLN_Parking Header";
     begin
         Validate("Entry Time");
         Validate("Exit Time");
@@ -105,11 +105,11 @@ table 61002 "Parking Registration"
     end;
 
     var
-        ParkingRates: Record "Parking Rates";
-        ParkingLines: Record "Parking Lines";
+        ParkingRates: Record "SPLN_Parking Rates";
+        ParkingLines: Record "SPLN_Parking Lines";
         Car: Record Car;
         Customer: Record Customer;
-        ParkingHeader: Record "Parking Header";
+        ParkingHeader: Record "SPLN_Parking Header";
 
     //[Scope('OnPrem')]
     procedure RegisterCarEntry(CarNo: Code[20]; ParkingLotNo: Code[20]): Text
@@ -140,10 +140,10 @@ table 61002 "Parking Registration"
           and (Customer.Get(Car."Customer No."))
           and not IsMonthlyPaymentLate
         then
-            exit(Customer."Payment type");
+            exit(Customer."SPLN_Payment type");
 
         // If the car has no registered owner, the customer has to pay a one-time fee
-        exit(Customer."Payment type"::"One-time");
+        exit(Customer."SPLN_Payment type"::"One-time");
     end;
 
     //[Scope('OnPrem')]
@@ -172,7 +172,7 @@ table 61002 "Parking Registration"
         CustomerNo: Code[20];
     begin
         PaymentType := GetOwnerPaymentType;
-        if PaymentType = Customer."Payment type"::"One-time" then begin
+        if PaymentType = Customer."SPLN_Payment type"::"One-time" then begin
             //MESSAGE('One-time payment required. Please print a check.');
             // Creating a header with a single line for a one time payment.
             if Car.Get("Car No.") then CustomerNo := Car."Customer No.";

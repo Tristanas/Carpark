@@ -1,4 +1,4 @@
-table 61011 "Posted Parking Lines"
+table 61011 "SPLN_Posted Parking Lines"
 {
 
     fields
@@ -13,7 +13,7 @@ table 61011 "Posted Parking Lines"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(3; Duration; Decimal)
+        field(3; "Duration"; Decimal)
         {
             DataClassification = ToBeClassified;
             Editable = false;
@@ -23,7 +23,7 @@ table 61011 "Posted Parking Lines"
             DataClassification = ToBeClassified;
             Editable = false;
         }
-        field(5; "Sum"; Decimal)
+        field(5; Sum; Decimal)
         {
             DataClassification = ToBeClassified;
             Editable = false;
@@ -37,7 +37,7 @@ table 61011 "Posted Parking Lines"
         {
             DataClassification = ToBeClassified;
             Editable = false;
-            TableRelation = "Posted Parking Header"."No.";
+            TableRelation = "SPLN_Posted Parking Header"."No.";
         }
         field(8; "Line No."; Integer)
         {

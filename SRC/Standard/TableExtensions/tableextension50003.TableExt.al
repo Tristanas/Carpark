@@ -1,27 +1,27 @@
-tableextension 50003 tableextension50003 extends Customer
+tableextension 50003 "SPLN_tableextension50003" extends Customer
 {
     fields
     {
-        field(50000; Company; Code[20])
+        field(50000; "SPLN_Company"; Code[20])
         {
             DataClassification = ToBeClassified;
             TableRelation = Contact WHERE(Type = CONST(Company));
         }
-        field(50001; "Payment type"; Option)
+        field(50001; "SPLN_Payment type"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Subscription,"One-time",Account;
         }
-        field(50002; DemoCust; Boolean)
+        field(50002; "SPLN_DemoCust"; Boolean)
         {
             DataClassification = ToBeClassified;
             InitValue = false;
         }
-        field(50003; "Latest Monthly Payment"; Date)
+        field(50003; "SPLN_Latest Monthly Payment"; Date)
         {
             DataClassification = ToBeClassified;
         }
-        field(50004; "Latest Billing Date"; Date)
+        field(50004; "SPLN_Latest Billing Date"; Date)
         {
             DataClassification = ToBeClassified;
         }

@@ -11,7 +11,7 @@ page 61042 "Park Accountant Role Center"
             group("Customer Information")
             {
                 Caption = 'Customer Information';
-                part(CustomerList; "Customer ListPart")
+                part(CustomerList; "SPLN_Customer ListPart")
                 {
                     ApplicationArea = All;
                     Caption = 'Customer List';
@@ -28,12 +28,12 @@ page 61042 "Park Accountant Role Center"
             {
                 ApplicationArea = All;
                 Caption = 'Payment History';
-                RunObject = Page "Posted Parking Order List";
+                RunObject = Page "SPLN_Posted Parking Order List";
             }
             action(Customers)
             {
                 ApplicationArea = All;
-                RunObject = Page "Parking Customer List";
+                RunObject = Page "SPLN_Parking Customer List";
             }
             action(Journal)
             {
@@ -52,7 +52,7 @@ page 61042 "Park Accountant Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Report "Monthly report (New)";
+                RunObject = Report "SPLN_Monthly report (New)";
             }
         }
     }

@@ -1,6 +1,6 @@
-tableextension 50010 tableextension50010 extends Item
+tableextension 50010 "SPLN_tableextension50010" extends Item
 {
-    procedure CreateForParkingRate(Rate: Record "Parking Rates"): Boolean
+    procedure CreateForParkingRate(Rate: Record "SPLN_Parking Rates"): Boolean
     begin
         if Rate."Rate No." = '' then exit(false);
 
@@ -17,7 +17,7 @@ tableextension 50010 tableextension50010 extends Item
         exit(Insert(true));
     end;
 
-    procedure UpdateFromRateType(Rate: Record "Parking Rates")
+    procedure UpdateFromRateType(Rate: Record "SPLN_Parking Rates")
     begin
         case Rate."Rate Type" of
             Rate."Rate Type"::Account:

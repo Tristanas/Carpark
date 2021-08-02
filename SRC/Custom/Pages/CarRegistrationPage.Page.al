@@ -1,7 +1,7 @@
-page 61030 "Car Registration Page"
+page 61030 "SPLN_Car Registration Page"
 {
     PageType = Card;
-    SourceTable = "Parking Registration";
+    SourceTable = "SPLN_Parking Registration";
     UsageCategory = Tasks;
     ApplicationArea = All;
 
@@ -61,7 +61,7 @@ page 61030 "Car Registration Page"
                     Caption = 'Applied Rate';
                     Editable = false;
                 }
-                field("Sum"; Sum)
+                field(Sum; Sum)
                 {
                     AutoFormatExpression = PriceFormat;
                     AutoFormatType = 10;
@@ -81,12 +81,12 @@ page 61030 "Car Registration Page"
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Company; Customer.Company)
+                field(Company; Customer.SPLN_Company)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Payment Type"; Customer."Payment type")
+                field("Payment Type"; Customer."SPLN_Payment type")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -152,7 +152,7 @@ page 61030 "Car Registration Page"
                     END ELSE BEGIN
                         CarHasOwner := FALSE;
                     END;
-                    OneTimeVisit := (NOT CarHasOwner) OR (Rec.GetOwnerPaymentType = Customer."Payment type"::"One-time");
+                    OneTimeVisit := (NOT CarHasOwner) OR (Rec.GetOwnerPaymentType = Customer."SPLN_Payment type"::"One-time");
                 end;
             }
             action("Print Check")
@@ -166,9 +166,9 @@ page 61030 "Car Registration Page"
 
                 trigger OnAction()
                 var
-                    ParkingHeader: Record "Parking Header";
-                    ParkingLines: Record "Parking Lines";
-                    PostingCodeunit: Codeunit "Parking Order - Post";
+                    ParkingHeader: Record "SPLN_Parking Header";
+                    ParkingLines: Record "SPLN_Parking Lines";
+                    PostingCodeunit: Codeunit "SPLN_Parking Order - Post";
                 begin
                     SETRECFILTER; // Make sure the check is printed for only this parking instance.
                     REPORT.RUN(61000, TRUE, TRUE, Rec);
@@ -211,8 +211,8 @@ page 61030 "Car Registration Page"
     end;
 
     var
-        ParkedCars: Record "Parking Registration";
-        ParkingRates: Record "Parking Rates";
+        ParkedCars: Record "SPLN_Parking Registration";
+        ParkingRates: Record "SPLN_Parking Rates";
         CanPrintCheck: Boolean;
         CarHasOwner: Boolean;
         RegisteredCars: Record Car;
@@ -222,7 +222,7 @@ page 61030 "Car Registration Page"
         CarNo: Code[20];
         PriceFormat: Text;
         RateFormat: Text;
-        CurrencyFormatSetup: Codeunit "Currency Format Setup";
+        CurrencyFormatSetup: Codeunit "SPLN_Currency Format Setup";
         Text1: Label 'Please print a check for the exiting car first.';
         Text2: Label 'Failed to post one time visit to ledger.';
 }

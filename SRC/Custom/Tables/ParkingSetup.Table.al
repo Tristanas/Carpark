@@ -1,4 +1,4 @@
-table 61010 "Parking Setup"
+table 61010 "SPLN_Parking Setup"
 {
 
     fields

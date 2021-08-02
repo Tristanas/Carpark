@@ -1,13 +1,13 @@
-page 61024 "Parking Lot Keeper Queue"
+page 61024 "SPLN_Parking Lot Keeper Queue"
 {
     PageType = CardPart;
-    SourceTable = "Parking Lot";
+    SourceTable = "SPLN_Parking Lot";
 
     layout
     {
         area(content)
         {
-            cuegroup("Parking Lot")
+            cuegroup("SPLN_Parking Lot")
             {
                 Caption = 'Parking Lot';
                 field("Parking spots"; "Parking spots")
@@ -32,14 +32,14 @@ page 61024 "Parking Lot Keeper Queue"
                     {
                         ApplicationArea = All;
                         Caption = 'Select Parking Lot';
-                        RunObject = Page "Parking Lot List";
+                        RunObject = Page "SPLN_Parking Lot List";
                         RunPageMode = View;
                     }
                     action("Register Cars")
                     {
                         ApplicationArea = All;
                         Caption = 'Register Cars';
-                        RunObject = Page "Car Registration Page";
+                        RunObject = Page "SPLN_Car Registration Page";
                     }
                 }
             }

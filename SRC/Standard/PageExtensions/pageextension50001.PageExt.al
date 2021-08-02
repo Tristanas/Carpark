@@ -1,4 +1,4 @@
-pageextension 50001 pageextension50001 extends "Posted Sales Invoices"
+pageextension 50001 "SPLN_pageextension50001" extends "Posted Sales Invoices"
 {
     actions
     {
@@ -7,7 +7,7 @@ pageextension 50001 pageextension50001 extends "Posted Sales Invoices"
         // so that there will be no need to manually apply which invoice is paid for.
         addfirst(Processing)
         {
-            action(ConfirmPayment)
+            action("SPLN_ConfirmPayment")
             {
                 ApplicationArea = All;
                 Caption = 'Confirm Payment';

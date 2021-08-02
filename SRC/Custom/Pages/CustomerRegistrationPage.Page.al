@@ -15,12 +15,12 @@ page 61031 "Customer Registration Page"
                     Caption = 'Name';
                     ApplicationArea = All;
                 }
-                field(Company; Customer.Company)
+                field(Company; Customer.SPLN_Company)
                 {
                     Caption = 'Company';
                     ApplicationArea = All;
                 }
-                field(PaymentType; Customer."Payment type")
+                field(PaymentType; Customer."SPLN_Payment type")
                 {
                     Caption = 'Payment Type';
                     ApplicationArea = All;

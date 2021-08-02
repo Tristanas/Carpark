@@ -1,7 +1,7 @@
-page 61026 "Parking Lot ListPart"
+page 61026 "SPLN_Parking Lot ListPart"
 {
     PageType = ListPart;
-    SourceTable = "Parking Lot";
+    SourceTable = "SPLN_Parking Lot";
 
     layout
     {
@@ -13,15 +13,15 @@ page 61026 "Parking Lot ListPart"
                 {
                     ApplicationArea = All;
                 }
-                field("Address"; Address)
+                field(Address; Address)
                 {
                     ApplicationArea = All;
                 }
-                field("City"; City)
+                field(City; City)
                 {
                     ApplicationArea = All;
                 }
-                field("Country"; Country)
+                field(Country; Country)
                 {
                     ApplicationArea = All;
                 }

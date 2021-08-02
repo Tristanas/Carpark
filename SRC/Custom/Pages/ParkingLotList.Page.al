@@ -1,7 +1,7 @@
-page 61001 "Parking Lot List"
+page 61001 "SPLN_Parking Lot List"
 {
     PageType = List;
-    SourceTable = "Parking Lot";
+    SourceTable = "SPLN_Parking Lot";
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -58,7 +58,7 @@ page 61001 "Parking Lot List"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page "Parked Car List";
+                RunObject = Page "SPLN_Parked Car List";
                 RunPageLink = "Parking Lot No." = FIELD("No."), "Exit Time" = CONST();
                 RunPageMode = View;
             }
@@ -90,7 +90,7 @@ page 61001 "Parking Lot List"
 
                 trigger OnAction()
                 var
-                    ParkedCars: Record "Parking Registration";
+                    ParkedCars: Record "SPLN_Parking Registration";
                     Employee: Record Employee;
                 begin
                     ParkedCars.SETRANGE("Exit Time", 0DT);

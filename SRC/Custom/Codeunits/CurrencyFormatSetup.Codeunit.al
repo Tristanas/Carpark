@@ -1,4 +1,4 @@
-codeunit 61001 "Currency Format Setup"
+codeunit 61001 "SPLN_Currency Format Setup"
 {
 
     trigger OnRun()
@@ -30,7 +30,7 @@ codeunit 61001 "Currency Format Setup"
         Currency: Record Currency;
     begin
         CompanyInfo.FindFirst;
-        Currency.Get(CompanyInfo.Currency);
+        Currency.Get(CompanyInfo.SPLN_Currency);
 
         exit(Currency.GetCurrencySymbol);
     end;

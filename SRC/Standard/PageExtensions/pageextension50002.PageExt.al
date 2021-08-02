@@ -1,10 +1,10 @@
-pageextension 50002 pageextension50002 extends "Sales Order"
+pageextension 50002 "SPLN_pageextension50002" extends "Sales Order"
 {
     layout
     {
         addafter("Work Description")
         {
-            field(newField; testText)
+            field("SPLN_newField"; testText)
             {
                 ApplicationArea = All;
                 Editable = true;
@@ -19,7 +19,7 @@ pageextension 50002 pageextension50002 extends "Sales Order"
     {
         addfirst("&Order Confirmation")
         {
-            action(PrintInvoice)
+            action("SPLN_PrintInvoice")
             {
                 ApplicationArea = All;
                 Caption = 'Print Invoice';

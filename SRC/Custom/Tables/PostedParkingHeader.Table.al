@@ -1,4 +1,4 @@
-table 61012 "Posted Parking Header"
+table 61012 "SPLN_Posted Parking Header"
 {
 
     fields
@@ -26,13 +26,13 @@ table 61012 "Posted Parking Header"
         }
         field(5; "Total Park Visits"; Integer)
         {
-            CalcFormula = Count ("Posted Parking Lines" WHERE ("Header No." = FIELD ("No.")));
+            CalcFormula = Count("SPLN_Posted Parking Lines" WHERE("Header No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(6; "Total Hours Parked"; Decimal)
         {
-            CalcFormula = Sum ("Posted Parking Lines".Duration WHERE ("Header No." = FIELD ("No.")));
+            CalcFormula = Sum("SPLN_Posted Parking Lines".Duration WHERE("Header No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -57,9 +57,9 @@ table 61012 "Posted Parking Header"
             Editable = false;
             OptionMembers = Subscription,"One-time",Account;
         }
-        field(11; "Sum"; Decimal)
+        field(11; Sum; Decimal)
         {
-            CalcFormula = Sum ("Posted Parking Lines".Sum WHERE ("Header No." = FIELD ("No.")));
+            CalcFormula = Sum("SPLN_Posted Parking Lines".Sum WHERE("Header No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }

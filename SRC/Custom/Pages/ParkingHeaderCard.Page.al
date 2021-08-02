@@ -1,7 +1,7 @@
-page 61014 "Parking Header Card"
+page 61014 "SPLN_Parking Header Card"
 {
     PageType = Card;
-    SourceTable = "Parking Header";
+    SourceTable = "SPLN_Parking Header";
     UsageCategory = Tasks;
     ApplicationArea = All;
 

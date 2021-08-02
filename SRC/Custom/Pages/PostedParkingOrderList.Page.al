@@ -1,7 +1,7 @@
-page 61013 "Posted Parking Order List"
+page 61013 "SPLN_Posted Parking Order List"
 {
     PageType = List;
-    SourceTable = "Posted Parking Header";
+    SourceTable = "SPLN_Posted Parking Header";
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -27,7 +27,7 @@ page 61013 "Posted Parking Order List"
                 {
                     ApplicationArea = All;
                 }
-                field("Sum"; Sum)
+                field(Sum; Sum)
                 {
                     ApplicationArea = All;
                 }

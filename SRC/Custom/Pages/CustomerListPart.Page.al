@@ -1,8 +1,8 @@
-page 61027 "Customer ListPart"
+page 61027 "SPLN_Customer ListPart"
 {
     PageType = ListPart;
     SourceTable = Customer;
-    SourceTableView = WHERE(DemoCust = CONST(false));
+    SourceTableView = WHERE(SPLN_DemoCust = CONST(false));
 
     layout
     {
@@ -18,7 +18,7 @@ page 61027 "Customer ListPart"
                 {
                     ApplicationArea = All;
                 }
-                field("Payment type"; "Payment type")
+                field("Payment type"; "SPLN_Payment type")
                 {
                     ApplicationArea = All;
                 }
@@ -26,7 +26,7 @@ page 61027 "Customer ListPart"
                 {
                     ApplicationArea = All;
                 }
-                field(Company; Company)
+                field(Company; SPLN_Company)
                 {
                     ApplicationArea = All;
                 }

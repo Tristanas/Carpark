@@ -1,4 +1,4 @@
-report 61001 "Parking Invoice (Sales)"
+report 61001 "SPLN_Parking Invoice (Sales)"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'SRC/Custom/Reports/RdlcLayouts/ParkingInvoiceSales.rdlc';
@@ -49,11 +49,11 @@ report 61001 "Parking Invoice (Sales)"
             {
                 IncludeCaption = true;
             }
-            column(ServicesType; "Sales Header"."Services Type")
+            column(ServicesType; "Sales Header"."SPLN_Services Type")
             {
                 IncludeCaption = true;
             }
-            column(Issuer; "Sales Header"."Issued By")
+            column(Issuer; "Sales Header"."SPLN_Issued By")
             {
                 IncludeCaption = true;
             }
@@ -64,7 +64,7 @@ report 61001 "Parking Invoice (Sales)"
             dataitem("Sales Line"; "Sales Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
-                column(CarNo; "Sales Line"."Car No.")
+                column(CarNo; "Sales Line"."SPLN_Car No.")
                 {
                     IncludeCaption = true;
                 }
@@ -91,7 +91,7 @@ report 61001 "Parking Invoice (Sales)"
 
             trigger OnAfterGetRecord()
             begin
-                if PostedParkingOrder.Get("Sales Header"."Parking Order No.") then begin
+                if PostedParkingOrder.Get("Sales Header"."SPLN_Parking Order No.") then begin
                     MonthStart := PostedParkingOrder.Month;
                     MonthEnd := CalcDate('CM', MonthStart);
                 end else begin
@@ -99,7 +99,7 @@ report 61001 "Parking Invoice (Sales)"
                     MonthStart := MonthEnd + 1 - Date2DMY(MonthEnd, 1);
                 end;
 
-                if "Services Type" = "Services Type"::Subscription then
+                if "SPLN_Services Type" = "SPLN_Services Type"::Subscription then
                     DurationUnit := 'Months'
                 else
                     DurationUnit := 'Hours';
@@ -144,8 +144,8 @@ report 61001 "Parking Invoice (Sales)"
     }
 
     var
-        PostedParkingOrder: Record "Posted Parking Header";
-        CurrencyFormatCU: Codeunit "Currency Format Setup";
+        PostedParkingOrder: Record "SPLN_Posted Parking Header";
+        CurrencyFormatCU: Codeunit "SPLN_Currency Format Setup";
         CustomerName: Text[50];
         CustomerNo: Code[20];
         CustomerCity: Text[20];

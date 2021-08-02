@@ -1,4 +1,4 @@
-report 61010 "Monthly report (New)"
+report 61010 "SPLN_Monthly report (New)"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'SRC/Custom/Reports/RdlcLayouts/MonthlyreportNew.rdlc';
@@ -7,20 +7,20 @@ report 61010 "Monthly report (New)"
 
     dataset
     {
-        dataitem("Parking Lot"; "Parking Lot")
+        dataitem("SPLN_Parking Lot"; "SPLN_Parking Lot")
         {
             DataItemTableView = SORTING("No.");
             PrintOnlyIfDetail = true;
-            column(LotNo; "Parking Lot"."No.")
+            column(LotNo; "SPLN_Parking Lot"."No.")
             {
             }
-            column(LotAddress; "Parking Lot".Address)
+            column(LotAddress; "SPLN_Parking Lot".Address)
             {
             }
-            column(LotCity; "Parking Lot".City)
+            column(LotCity; "SPLN_Parking Lot".City)
             {
             }
-            column(LotCountry; "Parking Lot".Country)
+            column(LotCountry; "SPLN_Parking Lot".Country)
             {
             }
             column(SelectedLotNo; ParkingLotNo)
@@ -56,7 +56,7 @@ report 61010 "Monthly report (New)"
             column(CompanyName; COMPANYPROPERTY.DisplayName)
             {
             }
-            dataitem("Posted Parking Lines"; "Posted Parking Lines")
+            dataitem("Posted Parking Lines"; "SPLN_Posted Parking Lines")
             {
                 DataItemLink = "Parking Lot No." = FIELD("No.");
                 DataItemTableView = SORTING("Header No.", "Line No.") WHERE("Parking Lot No." = FILTER(<> ''));
@@ -75,7 +75,7 @@ report 61010 "Monthly report (New)"
                 {
                     IncludeCaption = true;
                 }
-                dataitem("Posted Parking Header"; "Posted Parking Header")
+                dataitem("Posted Parking Header"; "SPLN_Posted Parking Header")
                 {
                     DataItemLink = "No." = FIELD("Header No.");
                     DataItemTableView = SORTING("No.");
@@ -106,7 +106,7 @@ report 61010 "Monthly report (New)"
 
                     trigger OnPreDataItem()
                     var
-                        PostedParkingHeader: Record "Posted Parking Header";
+                        PostedParkingHeader: Record "SPLN_Posted Parking Header";
                     begin
                         //MESSAGE('Setting a filter for orders, interval: %1 - %2', ReportStartDate, ReportEndDate);
 
@@ -132,10 +132,10 @@ report 61010 "Monthly report (New)"
 
             trigger OnPreDataItem()
             begin
-                if ParkingLotNo <> '' then "Parking Lot".SetRange("No.", ParkingLotNo);
+                if ParkingLotNo <> '' then "SPLN_Parking Lot".SetRange("No.", ParkingLotNo);
             end;
         }
-        dataitem("Subscription Orders"; "Posted Parking Header")
+        dataitem("Subscription Orders"; "SPLN_Posted Parking Header")
         {
             DataItemTableView = SORTING("No.") WHERE("Services Type" = CONST(Subscription));
             PrintOnlyIfDetail = true;
@@ -145,7 +145,7 @@ report 61010 "Monthly report (New)"
             column(SubHeaderMonth; "Subscription Orders".Month)
             {
             }
-            dataitem("Subscription Lines"; "Posted Parking Lines")
+            dataitem("Subscription Lines"; "SPLN_Posted Parking Lines")
             {
                 DataItemLink = "Header No." = FIELD("No.");
                 DataItemTableView = SORTING("Header No.", "Line No.");
@@ -199,10 +199,10 @@ report 61010 "Monthly report (New)"
                 group("Select Parking Lot")
                 {
                     Caption = 'Select Parking Lot';
-                    field("Parking Lot"; ParkingLotNo)
+                    field("SPLN_Parking Lot"; ParkingLotNo)
                     {
                         Caption = 'Lot Number';
-                        TableRelation = "Parking Lot"."No.";
+                        TableRelation = "SPLN_Parking Lot"."No.";
                         ApplicationArea = All;
                     }
                 }
@@ -227,8 +227,8 @@ report 61010 "Monthly report (New)"
     end;
 
     var
-        CurrencyFormatCU: Codeunit "Currency Format Setup";
-        ParkingLot: Record "Parking Lot";
+        CurrencyFormatCU: Codeunit "SPLN_Currency Format Setup";
+        ParkingLot: Record "SPLN_Parking Lot";
         ReportStartDate: Date;
         ReportEndDate: Date;
         ParkingLotNo: Code[20];

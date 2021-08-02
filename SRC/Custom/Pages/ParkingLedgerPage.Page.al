@@ -1,7 +1,7 @@
-page 61016 "Parking Ledger Page"
+page 61016 "SPLN_Parking Ledger Page"
 {
     PageType = List;
-    SourceTable = "Parking Ledger Entry";
+    SourceTable = "SPLN_Parking Ledger Entry";
     UsageCategory = Lists;
     ApplicationArea = All;
 

@@ -1,4 +1,4 @@
-page 61100 "Parking Setup Page"
+page 61100 "SPLN_Parking Setup Page"
 {
     PageType = Card;
     SourceTable = "Parking Setup";

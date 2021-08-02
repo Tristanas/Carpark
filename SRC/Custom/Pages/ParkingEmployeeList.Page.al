@@ -1,4 +1,4 @@
-page 61005 "Parking Employee List"
+page 61005 "SPLN_Parking Employee List"
 {
     CardPageID = "Parking Employee Card";
     PageType = List;

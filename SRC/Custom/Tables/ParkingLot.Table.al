@@ -1,4 +1,4 @@
-table 61001 "Parking Lot"
+table 61001 "SPLN_Parking Lot"
 {
 
     fields
@@ -29,8 +29,8 @@ table 61001 "Parking Lot"
         }
         field(7; "Parked cars count"; Integer)
         {
-            CalcFormula = Count ("Parking Registration" WHERE ("Parking Lot No." = FIELD ("No."),
-                                                              "Exit Time" = CONST ()));
+            CalcFormula = Count("SPLN_Parking Registration" WHERE("Parking Lot No." = FIELD("No."),
+                                                              "Exit Time" = CONST()));
             FieldClass = FlowField;
         }
     }

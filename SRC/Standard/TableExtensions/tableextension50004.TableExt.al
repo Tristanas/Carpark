@@ -1,18 +1,18 @@
-tableextension 50004 tableextension50004 extends "Sales Header"
+tableextension 50004 "SPLN_tableextension50004" extends "Sales Header"
 {
     fields
     {
-        field(50000; "Parking Order No."; Code[20])
+        field(50000; "SPLN_Parking Order No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Posted Parking Header"."No.";
+            TableRelation = "SPLN_Posted Parking Header"."No.";
         }
-        field(50001; "Issued By"; Text[30])
+        field(50001; "SPLN_Issued By"; Text[30])
         {
             DataClassification = ToBeClassified;
             TableRelation = User."User Name";
         }
-        field(50002; "Services Type"; Option)
+        field(50002; "SPLN_Services Type"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Subscription,"One-time",Account;
@@ -23,9 +23,9 @@ tableextension 50004 tableextension50004 extends "Sales Header"
     begin
     end;
 
-    procedure InitFromParkingHeader(ParkingHeader: Record "Parking Header")
+    procedure InitFromParkingHeader(ParkingHeader: Record "SPLN_Parking Header")
     var
-        ParkingLines: Record "Parking Lines";
+        ParkingLines: Record "SPLN_Parking Lines";
     begin
         Init;
         InitRecord; // Various dates and document no. will be set due to this function call.
@@ -34,8 +34,8 @@ tableextension 50004 tableextension50004 extends "Sales Header"
         "Salesperson Code" := UserId;
         "Due Date" := WorkDate + 14; // Order must be paid within 14 days;
         "Document Type" := "Document Type"::Order;
-        "Services Type" := ParkingHeader."Services Type";
-        "Issued By" := ParkingHeader."Issued By";
+        "SPLN_Services Type" := ParkingHeader."Services Type";
+        "SPLN_Issued By" := ParkingHeader."Issued By";
 
         "Bill-to Customer No." := ParkingHeader."Customer No.";
         "Bill-to Name" := ParkingHeader."Customer Name";
@@ -58,9 +58,9 @@ tableextension 50004 tableextension50004 extends "Sales Header"
     end;
 
     //[Scope('OnPrem')]
-    procedure TransferParkingHeaderLines(ParkingHeader: Record "Parking Header")
+    procedure TransferParkingHeaderLines(ParkingHeader: Record "SPLN_Parking Header")
     var
-        ParkingLine: Record "Parking Lines";
+        ParkingLine: Record "SPLN_Parking Lines";
         Item: Record Item;
         recSalesLine: Record "Sales Line";
     begin
@@ -87,7 +87,7 @@ tableextension 50004 tableextension50004 extends "Sales Header"
                 recSalesLine.Validate(Quantity);
 
                 // Set custom Sales Line fields. For some reason these fields are nullified if set before validation.
-                recSalesLine."Car No." := ParkingLine."Car No.";
+                recSalesLine."SPLN_Car No." := ParkingLine."Car No.";
                 recSalesLine."Entry Time" := ParkingLine."Entry Time";
 
                 if not recSalesLine.Insert then Error(ErrorText3);

@@ -11,7 +11,7 @@ page 61041 "Park Administrator Role Center"
             group("Hello Admin")
             {
                 Caption = 'Hello Admin';
-                part(ParkingLotsList; "Parking Lot ListPart")
+                part(ParkingLotsList; "SPLN_Parking Lot ListPart")
                 {
                     ApplicationArea = All;
                     Caption = 'Parking Lots';
@@ -32,7 +32,7 @@ page 61041 "Park Administrator Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page "Parking Customer Card";
+                RunObject = Page "SPLN_Parking Customer Card";
                 RunPageMode = Create;
             }
         }
@@ -42,7 +42,7 @@ page 61041 "Park Administrator Role Center"
             {
                 ApplicationArea = All;
                 Caption = 'Parking Lots';
-                RunObject = Page "Parking Lot List";
+                RunObject = Page "SPLN_Parking Lot List";
             }
             action(Employees)
             {
@@ -52,14 +52,14 @@ page 61041 "Park Administrator Role Center"
             action(Customers)
             {
                 ApplicationArea = All;
-                RunObject = Page "Parking Customer List";
-                RunPageView = WHERE(DemoCust = CONST(false));
+                RunObject = Page "SPLN_Parking Customer List";
+                RunPageView = WHERE(SPLN_DemoCust = CONST(false));
             }
             action(ParkingPricing)
             {
                 ApplicationArea = All;
                 Caption = 'Parking Pricing';
-                RunObject = Page "Parking Rate List";
+                RunObject = Page "SPLN_Parking Rate List";
             }
         }
     }

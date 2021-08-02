@@ -1,4 +1,4 @@
-table 61006 "Parking Lines"
+table 61006 "SPLN_Parking Lines"
 {
 
     fields
@@ -12,7 +12,7 @@ table 61006 "Parking Lines"
         {
             DataClassification = ToBeClassified;
         }
-        field(3; Duration; Decimal)
+        field(3; "Duration"; Decimal)
         {
             DataClassification = ToBeClassified;
         }
@@ -20,19 +20,19 @@ table 61006 "Parking Lines"
         {
             DataClassification = ToBeClassified;
         }
-        field(5; "Sum"; Decimal)
+        field(5; Sum; Decimal)
         {
             DataClassification = ToBeClassified;
         }
         field(6; "Parking Lot No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Parking Lot";
+            TableRelation = "SPLN_Parking Lot";
         }
         field(7; "Header No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Parking Header"."No.";
+            TableRelation = "SPLN_Parking Header"."No.";
         }
         field(8; "Line No."; Integer)
         {
@@ -64,7 +64,7 @@ table 61006 "Parking Lines"
 
     local procedure GetNewLineNo(HeaderNo: Code[20]): Integer
     var
-        Lines: Record "Parking Lines";
+        Lines: Record "SPLN_Parking Lines";
     begin
         Lines.SetRange("Header No.", HeaderNo);
         if Lines.FindLast then exit(Lines."Line No." + 100);
@@ -74,9 +74,9 @@ table 61006 "Parking Lines"
     //[Scope('OnPrem')]
     procedure GetItem(var Item: Record Item) Ok: Boolean
     var
-        ParkingRates: Record "Parking Rates";
-        Rate: Record "Parking Rates";
-        ParkingHeader: Record "Parking Header";
+        ParkingRates: Record "SPLN_Parking Rates";
+        Rate: Record "SPLN_Parking Rates";
+        ParkingHeader: Record "SPLN_Parking Header";
     begin
         if not ParkingHeader.Get("Header No.") then exit(false);
 

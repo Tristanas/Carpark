@@ -1,4 +1,4 @@
-codeunit 61000 "Parking Order - Post"
+codeunit 61000 "SPLN_Parking Order - Post"
 {
 
     trigger OnRun()
@@ -19,10 +19,10 @@ codeunit 61000 "Parking Order - Post"
     // Checks an order for a specific customer.
     // Fails in case of a one-time visit.
     //[Scope('OnPrem')]
-    procedure CheckOrder(ParkingOrder: Record "Parking Header")
+    procedure CheckOrder(ParkingOrder: Record "SPLN_Parking Header")
     var
-        ParkingHeader: Record "Parking Header";
-        ParkingLine: Record "Parking Lines";
+        ParkingHeader: Record "SPLN_Parking Header";
+        ParkingLine: Record "SPLN_Parking Lines";
     begin
         ParkingOrder.TestField("Customer No.");
         ParkingOrder.TestField("Posting Date");
@@ -45,13 +45,13 @@ codeunit 61000 "Parking Order - Post"
 
     // Returns posted parking order No.
     //[Scope('OnPrem')]
-    procedure PostOrder(ParkingOrder: Record "Parking Header"; PostToLedger: Boolean): Code[20]
+    procedure PostOrder(ParkingOrder: Record "SPLN_Parking Header"; PostToLedger: Boolean): Code[20]
     var
-        ParkingHeader: Record "Parking Header";
-        ParkingLine: Record "Parking Lines";
+        ParkingHeader: Record "SPLN_Parking Header";
+        ParkingLine: Record "SPLN_Parking Lines";
         ParkingJournal: Record "Parking Journal Line";
-        PostedParkingLine: Record "Posted Parking Lines";
-        PostedParkingHeader: Record "Posted Parking Header";
+        PostedParkingLine: Record "SPLN_Posted Parking Lines";
+        PostedParkingHeader: Record "SPLN_Posted Parking Header";
         ParkingOrderNo: Code[20];
     begin
         //1. Copy information to Posted Parking Header talbe:
@@ -101,10 +101,10 @@ codeunit 61000 "Parking Order - Post"
     end;
 
     //[Scope('OnPrem')]
-    procedure PostJournalToLedger(PostedParkingOrder: Record "Posted Parking Header")
+    procedure PostJournalToLedger(PostedParkingOrder: Record "SPLN_Posted Parking Header")
     var
         ParkingJournal: Record "Parking Journal Line";
-        GeneralLedger: Record "Parking Ledger Entry";
+        GeneralLedger: Record "SPLN_Parking Ledger Entry";
     begin
         ParkingJournal.SetRange("Document No.", PostedParkingOrder."No.");
         ParkingJournal.FindFirst;
@@ -129,14 +129,14 @@ codeunit 61000 "Parking Order - Post"
     end;
 
     //[Scope('OnPrem')]
-    procedure PostOneTimeVisit(ParkingOrder: Record "Parking Header")
+    procedure PostOneTimeVisit(ParkingOrder: Record "SPLN_Parking Header")
     begin
         PostOrder(ParkingOrder, true);
 
     end;
 
     // Maps Parking Header "Services type" to Journal "Entry Type".
-    local procedure GetEntryType(ParkingOrder: Record "Parking Header"): Integer
+    local procedure GetEntryType(ParkingOrder: Record "SPLN_Parking Header"): Integer
     var
         ParkingJournal: Record "Parking Journal Line";
     begin

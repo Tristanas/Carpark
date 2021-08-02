@@ -1,15 +1,15 @@
-tableextension 50006 tableextension50006 extends Employee
+tableextension 50006 "SPLN_tableextension50006" extends Employee
 {
     fields
     {
-        field(50000; "Parking Lot No."; Code[20])
+        field(50000; "SPLN_Parking Lot No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Parking Lot";
+            TableRelation = "SPLN_Parking Lot";
             //This property is currently not supported
             //TestTableRelation = true;
         }
-        field(50001; UserName; Code[50])
+        field(50001; "SPLN_UserName"; Code[50])
         {
             DataClassification = ToBeClassified;
             TableRelation = User."User Name";
@@ -25,9 +25,9 @@ tableextension 50006 tableextension50006 extends Employee
 
     procedure SetWatchedLot(LotNo: Code[20]): Boolean
     begin
-        SetRange(UserName, UserId);
+        SetRange(SPLN_UserName, UserId);
         if FindFirst then begin
-            "Parking Lot No." := LotNo;
+            "SPLN_Parking Lot No." := LotNo;
             Modify;
             exit(true);
         end;
@@ -36,8 +36,8 @@ tableextension 50006 tableextension50006 extends Employee
 
     procedure GetWatchedLotNo(): Code[20]
     begin
-        SetRange(UserName, UserId);
-        if FindFirst then exit("Parking Lot No.") else exit('');
+        SetRange(SPLN_UserName, UserId);
+        if FindFirst then exit("SPLN_Parking Lot No.") else exit('');
     end;
 }
 

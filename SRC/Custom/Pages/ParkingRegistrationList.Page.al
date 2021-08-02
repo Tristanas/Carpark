@@ -1,7 +1,7 @@
-page 61006 "Parking Registration List"
+page 61006 "SPLN_Parking Registration List"
 {
     PageType = List;
-    SourceTable = "Parking Registration";
+    SourceTable = "SPLN_Parking Registration";
     UsageCategory = History;
     ApplicationArea = All;
 
@@ -32,7 +32,7 @@ page 61006 "Parking Registration List"
                 {
                     ApplicationArea = All;
                 }
-                field("Sum"; Sum)
+                field(Sum; Sum)
                 {
                     ApplicationArea = All;
                     AutoFormatExpression = '<precision, 2:2><standard format,0>';

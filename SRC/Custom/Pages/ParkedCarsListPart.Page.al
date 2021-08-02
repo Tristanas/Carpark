@@ -1,7 +1,7 @@
-page 61023 "Parked Cars ListPart"
+page 61023 "SPLN_Parked Cars ListPart"
 {
     PageType = ListPart;
-    SourceTable = "Parking Registration";
+    SourceTable = "SPLN_Parking Registration";
     SourceTableView = WHERE("Car No." = FILTER(<> ''),
                             "Entry Time" = FILTER(<> ''));
 

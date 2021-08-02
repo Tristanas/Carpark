@@ -1,4 +1,4 @@
-table 61004 "Parking Rates"
+table 61004 "SPLN_Parking Rates"
 {
 
     fields
@@ -106,18 +106,18 @@ table 61004 "Parking Rates"
         ParkingRateNo: Code[20];
         Customer: Record Customer;
     begin
-        if PaymentType = Customer."Payment type"::Subscription then exit(0);
+        if PaymentType = Customer."SPLN_Payment type"::Subscription then exit(0);
         GetParkingRateRecord("Parking Duration (Hours)", PaymentType, Rec);
         exit(Rate);
     end;
 
     //[Scope('OnPrem')]
-    procedure GetParkingRateRecord("Parking Duration (Hours)": Decimal; PaymentType: Integer; var ParkingRate: Record "Parking Rates") Ok: Boolean
+    procedure GetParkingRateRecord("Parking Duration (Hours)": Decimal; PaymentType: Integer; var ParkingRate: Record "SPLN_Parking Rates") Ok: Boolean
     var
         Customer: Record Customer;
     begin
         case PaymentType of
-            Customer."Payment type"::"One-time":
+            Customer."SPLN_Payment type"::"One-time":
                 begin
                     ParkingRate.SetFilter("Rate No.", '*OTP*');
                     ParkingRate.SetFilter(MinParkingDuration, '<=%1', "Parking Duration (Hours)");
@@ -125,13 +125,13 @@ table 61004 "Parking Rates"
                     exit(true);
                 end;
 
-            Customer."Payment type"::Account:
+            Customer."SPLN_Payment type"::Account:
                 begin
                     ParkingRate.Get('ACC');
                     exit(true);
                 end;
 
-            Customer."Payment type"::Subscription:
+            Customer."SPLN_Payment type"::Subscription:
                 begin
                     ParkingRate.Get('SUB');
                     exit(true);

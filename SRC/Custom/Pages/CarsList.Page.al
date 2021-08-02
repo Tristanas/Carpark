@@ -1,4 +1,4 @@
-page 61000 "Cars List"
+page 61000 "SPLN_Cars List"
 {
     PageType = List;
     SourceTable = Car;

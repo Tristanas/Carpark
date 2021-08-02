@@ -1,8 +1,8 @@
-page 61003 "Parking Header List"
+page 61003 "SPLN_Parking Header List"
 {
-    CardPageID = "Parking Header Card";
+    CardPageID = "SPLN_Parking Header Card";
     PageType = List;
-    SourceTable = "Parking Header";
+    SourceTable = "SPLN_Parking Header";
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -66,15 +66,15 @@ page 61003 "Parking Header List"
 
                 trigger OnAction()
                 var
-                    ParkingHeader: Record "Parking Header";
-                    OrderPostingCU: Codeunit "Parking Order - Post";
+                    ParkingHeader: Record "SPLN_Parking Header";
+                    OrderPostingCU: Codeunit "SPLN_Parking Order - Post";
                     Customer: Record Customer;
                     Ok: Boolean;
                 begin
                     Ok := Customer.GET("Customer No.");
                     OrderPostingCU.PostOrder(Rec, TRUE);
                     IF Ok THEN BEGIN
-                        Customer."Latest Monthly Payment" := Customer."Latest Billing Date";
+                        Customer."SPLN_Latest Monthly Payment" := Customer."SPLN_Latest Billing Date";
                         Customer.MODIFY;
                     END;
                 end;

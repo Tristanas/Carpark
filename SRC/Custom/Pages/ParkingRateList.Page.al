@@ -1,7 +1,7 @@
-page 61004 "Parking Rate List"
+page 61004 "SPLN_Parking Rate List"
 {
     PageType = List;
-    SourceTable = "Parking Rates";
+    SourceTable = "SPLN_Parking Rates";
     UsageCategory = Tasks;
     ApplicationArea = All;
 

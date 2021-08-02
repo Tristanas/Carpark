@@ -1,4 +1,4 @@
-page 61011 "Parking Employee Card"
+page 61011 "SPLN_Parking Employee Card"
 {
     PageType = Card;
     SourceTable = Employee;

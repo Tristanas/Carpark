@@ -1,4 +1,4 @@
-table 61007 "Parking Ledger Entry"
+table 61007 "SPLN_Parking Ledger Entry"
 {
 
     fields
