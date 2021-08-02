@@ -1,7 +1,7 @@
 page 61100 "SPLN_Parking Setup Page"
 {
     PageType = Card;
-    SourceTable = "Parking Setup";
+    SourceTable = "SPLN_Parking Setup";
     UsageCategory = Administration;
     ApplicationArea = All;
 

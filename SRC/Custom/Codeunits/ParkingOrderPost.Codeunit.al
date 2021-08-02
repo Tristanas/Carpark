@@ -49,7 +49,7 @@ codeunit 61000 "SPLN_Parking Order - Post"
     var
         ParkingHeader: Record "SPLN_Parking Header";
         ParkingLine: Record "SPLN_Parking Lines";
-        ParkingJournal: Record "Parking Journal Line";
+        ParkingJournal: Record "SPLN_Parking Journal Line";
         PostedParkingLine: Record "SPLN_Posted Parking Lines";
         PostedParkingHeader: Record "SPLN_Posted Parking Header";
         ParkingOrderNo: Code[20];
@@ -103,7 +103,7 @@ codeunit 61000 "SPLN_Parking Order - Post"
     //[Scope('OnPrem')]
     procedure PostJournalToLedger(PostedParkingOrder: Record "SPLN_Posted Parking Header")
     var
-        ParkingJournal: Record "Parking Journal Line";
+        ParkingJournal: Record "SPLN_Parking Journal Line";
         GeneralLedger: Record "SPLN_Parking Ledger Entry";
     begin
         ParkingJournal.SetRange("Document No.", PostedParkingOrder."No.");
@@ -138,7 +138,7 @@ codeunit 61000 "SPLN_Parking Order - Post"
     // Maps Parking Header "Services type" to Journal "Entry Type".
     local procedure GetEntryType(ParkingOrder: Record "SPLN_Parking Header"): Integer
     var
-        ParkingJournal: Record "Parking Journal Line";
+        ParkingJournal: Record "SPLN_Parking Journal Line";
     begin
         case ParkingOrder."Services Type" of
             ParkingOrder."Services Type"::Account:

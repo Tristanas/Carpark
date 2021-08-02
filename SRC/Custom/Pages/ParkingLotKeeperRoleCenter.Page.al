@@ -78,7 +78,7 @@ page 61040 "Parking Lot Keeper Role Center"
             {
                 ApplicationArea = All;
                 Caption = 'Customer Cars';
-                RunObject = Page "Cars List";
+                RunObject = Page "SPLN_Cars List";
             }
             action(Customers)
             {

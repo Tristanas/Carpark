@@ -6,7 +6,7 @@ table 61002 "SPLN_Parking Registration"
         field(1; "Car No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = Car;
+            TableRelation = SPLN_Car;
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -107,7 +107,7 @@ table 61002 "SPLN_Parking Registration"
     var
         ParkingRates: Record "SPLN_Parking Rates";
         ParkingLines: Record "SPLN_Parking Lines";
-        Car: Record Car;
+        Car: Record SPLN_Car;
         Customer: Record Customer;
         ParkingHeader: Record "SPLN_Parking Header";
 

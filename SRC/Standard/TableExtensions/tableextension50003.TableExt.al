@@ -62,6 +62,6 @@ tableextension 50003 "SPLN_tableextension50003" extends Customer
     end;
 
     var
-        Car: Record Car;
+        Car: Record SPLN_Car;
 }
 

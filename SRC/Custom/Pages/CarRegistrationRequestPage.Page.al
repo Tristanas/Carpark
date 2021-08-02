@@ -40,7 +40,7 @@ page 61101 "Car Registration Request Page"
     var
         CarNo: Code[20];
         CustomerNo: Code[20];
-        CarCard: Page "Parking Car Card";
+        CarCard: Page "SPLN_Parking Car Card";
 
     //[Scope('OnPrem')]
     procedure SetCustomerNo(No: Code[20])

@@ -1,6 +1,6 @@
 page 61005 "SPLN_Parking Employee List"
 {
-    CardPageID = "Parking Employee Card";
+    CardPageID = "SPLN_Parking Employee Card";
     PageType = List;
     SourceTable = Employee;
     UsageCategory = Tasks;

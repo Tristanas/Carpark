@@ -6,7 +6,7 @@ table 61006 "SPLN_Parking Lines"
         field(1; "Car No."; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = Car;
+            TableRelation = SPLN_Car;
         }
         field(2; "Entry Time"; DateTime)
         {

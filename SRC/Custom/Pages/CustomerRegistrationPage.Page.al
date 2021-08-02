@@ -138,7 +138,7 @@ page 61031 "Customer Registration Page"
     end;
 
     var
-        Car: Record Car;
+        Car: Record SPLN_Car;
         Customer: Record Customer;
         CustomerRegistered: Boolean;
 }

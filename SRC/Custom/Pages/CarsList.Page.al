@@ -1,7 +1,7 @@
 page 61000 "SPLN_Cars List"
 {
     PageType = List;
-    SourceTable = Car;
+    SourceTable = SPLN_Car;
     UsageCategory = Lists;
     ApplicationArea = All;
 

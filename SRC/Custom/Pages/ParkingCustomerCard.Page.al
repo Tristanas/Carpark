@@ -793,7 +793,7 @@ page 61017 "SPLN_Parking Customer Card"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page "Cars List";
+                    RunObject = Page "SPLN_Cars List";
                     RunPageLink = "Customer No." = FIELD("No.");
                 }
                 action(CustomerReportSelections)

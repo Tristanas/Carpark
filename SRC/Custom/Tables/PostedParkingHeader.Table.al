@@ -84,7 +84,7 @@ table 61012 "SPLN_Posted Parking Header"
 
     trigger OnInsert()
     var
-        ParkingSetup: Record "Parking Setup";
+        ParkingSetup: Record "SPLN_Parking Setup";
     begin
         if "No." = '' then begin
             ParkingSetup.Get;

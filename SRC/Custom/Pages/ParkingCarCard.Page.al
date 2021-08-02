@@ -1,7 +1,7 @@
 page 61018 "SPLN_Parking Car Card"
 {
     PageType = Card;
-    SourceTable = Car;
+    SourceTable = SPLN_Car;
 
     layout
     {
@@ -45,7 +45,7 @@ page 61018 "SPLN_Parking Car Card"
     //[Scope('OnPrem')]
     procedure InitCarForCustomer(CustomerNo: Code[20]; CarNo: Code[20])
     var
-        Car: Record Car;
+        Car: Record SPLN_Car;
     begin
         Car.Init;
         Car."Customer No." := CustomerNo;

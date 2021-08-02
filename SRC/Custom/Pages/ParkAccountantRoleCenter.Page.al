@@ -38,7 +38,7 @@ page 61042 "Park Accountant Role Center"
             action(Journal)
             {
                 ApplicationArea = All;
-                RunObject = Page "Parking Journal Page";
+                RunObject = Page "SPLN_Parking Journal Page";
                 Visible = false;
             }
         }

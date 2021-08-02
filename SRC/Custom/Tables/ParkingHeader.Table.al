@@ -95,7 +95,7 @@ table 61003 "SPLN_Parking Header"
     end;
 
     var
-        ParkingSetup: Record "Parking Setup";
+        ParkingSetup: Record "SPLN_Parking Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
         errorText1: Label 'Failed to update order.';
         errorText2: Label 'Customer No. %1 has no registered cars. Order cannot be created.';
@@ -173,7 +173,7 @@ table 61003 "SPLN_Parking Header"
 
     procedure CreateMonthlyOrder(Customer: Record Customer; var ParkingHeader: Record "SPLN_Parking Header")
     var
-        CustomerCars: Record Car;
+        CustomerCars: Record SPLN_Car;
         ParkingRegistration: Record "SPLN_Parking Registration";
         MonthStart: DateTime;
         MonthEnd: DateTime;

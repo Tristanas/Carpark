@@ -215,7 +215,7 @@ page 61030 "SPLN_Car Registration Page"
         ParkingRates: Record "SPLN_Parking Rates";
         CanPrintCheck: Boolean;
         CarHasOwner: Boolean;
-        RegisteredCars: Record Car;
+        RegisteredCars: Record SPLN_Car;
         Customer: Record Customer;
         ParkingLotNo: Code[20];
         OneTimeVisit: Boolean;

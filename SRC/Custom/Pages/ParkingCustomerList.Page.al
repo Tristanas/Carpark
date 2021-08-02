@@ -94,7 +94,7 @@ page 61012 "SPLN_Parking Customer List"
                     ParkingRegistration: Record "SPLN_Parking Registration";
                     ParkingLine: Record "SPLN_Parking Lines";
                     ParkingHeaderNo: Code[20];
-                    CustomerCars: Record Car;
+                    CustomerCars: Record SPLN_Car;
                     MonthStart: DateTime;
                     MonthEnd: DateTime;
                     ParkingRate: Record "SPLN_Parking Rates";
