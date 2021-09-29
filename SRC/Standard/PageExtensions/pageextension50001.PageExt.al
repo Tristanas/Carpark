@@ -7,11 +7,20 @@ pageextension 50001 "SPLN_pageextension50001" extends "Posted Sales Invoices"
         // so that there will be no need to manually apply which invoice is paid for.
         addfirst(Processing)
         {
+            action("SPLN_ConfirmUser")
+            {
+                ApplicationArea = All;
+                Caption = 'Confirm User';
+                Image = Action;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedIsBig = true;
+            }
             action("SPLN_ConfirmPayment")
             {
                 ApplicationArea = All;
                 Caption = 'Confirm Payment';
-                Image = Payment;
+                Image = PaymentJournal;
                 Promoted = true;
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
