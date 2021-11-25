@@ -112,7 +112,7 @@ page 61031 "Customer Registration Page"
                     Customer.INSERT(TRUE);
                     Car."Customer No." := Customer."No.";
                     Car.INSERT;
-                    MESSAGE('Customer was registered successfully.');
+                    // MESSAGE('Customer was registered successfully.');
                     CustomerRegistered := TRUE;
                     CurrPage.CLOSE;
                 end;

@@ -123,11 +123,11 @@ page 61030 "SPLN_Car Registration Page"
                 trigger OnAction()
                 begin
                     // Make sure the previous one-time visit transaction is finished.
-                    IF OneTimeVisit AND CanPrintCheck THEN BEGIN
-                        // TODO Create text constant for the message.
-                        MESSAGE(Text1);
-                        EXIT;
-                    END;
+                    // IF OneTimeVisit AND CanPrintCheck THEN BEGIN
+                    //     // TODO Create text constant for the message.
+                    //     MESSAGE(Text1);
+                    //     EXIT;
+                    // END;
 
                     // Searching for a parking entry of a certain car that has not left yet
                     ParkedCars.SETRANGE("Car No.", CarNo);
