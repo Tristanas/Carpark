@@ -11,7 +11,7 @@ page 61000 "SPLN_Cars List"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("Yes"; "No.")
                 {
                     ApplicationArea = All;
                 }
